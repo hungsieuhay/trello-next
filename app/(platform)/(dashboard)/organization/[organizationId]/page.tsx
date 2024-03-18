@@ -1,8 +1,17 @@
-import { OrganizationSwitcher, auth } from "@clerk/nextjs";
+import { Separator } from "@/components/ui/separator";
+import { Infor } from "./_components/info";
+import { BoardList } from "./_components/board-list";
 
-const OrganizationIdPage = () => {
-  const { orgId, userId } = auth();
-  return <div>Organization page</div>;
+const OrganizationIdPage = async () => {
+  return (
+    <div className="w-full mb-20">
+      <Infor />
+      <Separator className="my-4" />
+      <div className="px-2 md:px-4">
+        <BoardList />
+      </div>
+    </div>
+  );
 };
 
 export default OrganizationIdPage;
