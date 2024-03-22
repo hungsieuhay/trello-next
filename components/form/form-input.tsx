@@ -37,9 +37,11 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
   ) => {
     return (
       <div className="space-y-2">
-        <div className="space-y-1">
-          {label ? <Label htmlFor={id}>{label}</Label> : null}
-        </div>
+        {label ? (
+          <div className="space-y-1">
+            <Label htmlFor={id}>{label}</Label>
+          </div>
+        ) : null}
         <Input
           onBlur={onBlur}
           defaultValue={defaultValue}
