@@ -7,6 +7,7 @@ import { List } from "@prisma/client";
 import { ElementRef, useRef, useState } from "react";
 import { toast } from "sonner";
 import { useEventListener } from "usehooks-ts";
+import { ListOptions } from "./list-options";
 
 interface ListHeaderProps {
   data: List;
@@ -56,7 +57,7 @@ export const ListHeader = ({ data }: ListHeaderProps) => {
     const boardId = formData.get("boardId") as string;
 
     if (title === data.title) {
-      disableEditing();
+      return disableEditing();
     }
 
     execute({ boardId, id, title });
@@ -90,6 +91,7 @@ export const ListHeader = ({ data }: ListHeaderProps) => {
           {data.title}
         </div>
       )}
+      <ListOptions onAddCard={() => {}} data={data} />
     </div>
   );
 };
